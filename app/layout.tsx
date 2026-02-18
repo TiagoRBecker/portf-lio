@@ -22,7 +22,6 @@ export const metadata: Metadata = {
     "TypeScript",
     "Portfolio",
   ],
-  generator: "v0.app",
   icons: {
     icon: [
       {
