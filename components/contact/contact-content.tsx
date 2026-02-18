@@ -24,7 +24,7 @@ const contactLinks = [
   },
   {
     label: "LinkedIn",
-    value: "Tiago Beckerc", // Ajuste para seu link
+    value: "Tiago Becker", // Ajuste para seu link
     href: "https://linkedin.com/in/seu-perfil",
     icon: Linkedin,
   },
