@@ -19,7 +19,7 @@ const contactLinks = [
   {
     label: "GitHub",
     value: "Tiago Becker", // Ajuste para seu link
-    href: "https://github.com/seu-usuario",
+    href: "https://github.com/TiagoRBecker",
     icon: Github,
   },
   {
