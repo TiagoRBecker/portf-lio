@@ -45,7 +45,7 @@ export function StatsSection() {
   return (
     <section className="relative border-t border-border/50 bg-card/30">
       <div className="mx-auto max-w-7xl px-6 py-20">
-        <h3 className="text-2xl py-3"> Especializado em backend, frontend e infraestrutura, atuando do código ao deploy, com responsabilidade total sobre o sistema.</h3>
+        <h3 className="text-2xl py-3"> Sistemas completos, da arquitetura à operação em produção</h3>
            
        
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

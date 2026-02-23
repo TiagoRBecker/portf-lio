@@ -49,7 +49,7 @@ export function FeaturedProjects() {
           </div>
           <Button asChild variant="ghost" className="hidden sm:flex gap-2">
             <Link href="/projects">
-              View all projects
+            Ver todos projetos
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
@@ -124,7 +124,7 @@ export function FeaturedProjects() {
         <div className="mt-8 flex justify-center sm:hidden">
           <Button asChild variant="outline" className="gap-2 bg-transparent">
             <Link href="/projects">
-              View all projects
+            Ver todos projetos
               <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>

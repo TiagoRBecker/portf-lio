@@ -35,7 +35,7 @@ export function HeroSection() {
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
               </span>
               <span className="text-muted-foreground">
-                Available for new projects
+                Disponível para novos projetos
               </span>
             </div>
           </motion.div>
