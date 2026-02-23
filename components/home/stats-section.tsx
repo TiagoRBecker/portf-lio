@@ -81,7 +81,7 @@ export function StatsSection() {
           className="mt-16"
         >
           <h2 className="text-center text-sm font-medium text-muted-foreground uppercase tracking-wider">
-            Core Technologies
+           Tecnologias Essenciais
           </h2>
           <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
             {techStack.map((tech, index) => (

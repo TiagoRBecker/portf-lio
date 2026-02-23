@@ -41,10 +41,10 @@ export function FeaturedProjects() {
         >
           <div>
             <h2 className="text-2xl font-bold text-foreground sm:text-3xl">
-              Featured Projects
+              Projetos em Destaque
             </h2>
             <p className="mt-2 text-muted-foreground">
-              Production systems built with modern architecture
+            Sistemas de produção construídos com arquitetura moderna
             </p>
           </div>
           <Button asChild variant="ghost" className="hidden sm:flex gap-2">
