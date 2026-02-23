@@ -13,10 +13,10 @@ import {
 } from "lucide-react"
 
 const navItems = [
-  { href: "/", label: "Home", icon: Home },
-  { href: "/projects", label: "Projects", icon: FolderKanban },
-  { href: "/about", label: "About", icon: User },
-  { href: "/contact", label: "Contact", icon: Mail },
+  { href: "/", label: "Página inicial", icon: Home },
+  { href: "/projects", label: "Projetos", icon: FolderKanban },
+  { href: "/about", label: "Sobre", icon: User },
+  { href: "/contact", label: "Contato", icon: Mail },
 ]
 
 export function Navigation() {

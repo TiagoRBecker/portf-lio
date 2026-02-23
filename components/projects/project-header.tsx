@@ -16,19 +16,19 @@ import type { Project, ProjectStatus } from "@/lib/types"
 
 const statusConfig: Record<ProjectStatus, { label: string; icon: typeof Globe; className: string; description: string }> = {
   production: {
-    label: "In Production",
+    label: "Produção",
     icon: Globe,
     className: "bg-primary/10 text-primary border-primary/20",
     description: "Live and serving users",
   },
   private: {
-    label: "Private",
+    label: "Privado",
     icon: Lock,
     className: "bg-amber-500/10 text-amber-500 border-amber-500/20",
     description: "Access restricted",
   },
   saas: {
-    label: "SaaS Product",
+    label: "SaaS",
     icon: Cloud,
     className: "bg-cyan-500/10 text-cyan-500 border-cyan-500/20",
     description: "Subscription-based product",
@@ -95,7 +95,7 @@ export function ProjectHeader({ project, onRequestAccess }: ProjectHeaderProps) 
             <Button asChild className="gap-2">
               <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="h-4 w-4" />
-                Access Live Project
+                Acessar Projeto
               </a>
             </Button>
           )}

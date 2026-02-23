@@ -1,5 +1,5 @@
 import { Project } from "@/lib/types";
-import { validateHeaderValue } from "http";
+
 
 export const projects: Project[] = [
   {
@@ -16,9 +16,10 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "NextAuth",
     ],
-    status: "private",
-    isPublic: false,
-    githubAccessRequired: true,
+    status: "saas",
+    isPublic: true,
+    githubAccessRequired: false,
+    liveUrl:"https://github.com/TiagoRBecker/case-editora",
     modules: [
       {
         id: "architecture",
@@ -147,7 +148,7 @@ export const projects: Project[] = [
     tags: ["Next.js", "NestJS", "Docker"],
     status: "production",
     isPublic: true,
-    liveUrl: "https://example-logistics.com",
+    liveUrl: "https://www.fichadeanamnese.com.br/",
     modules: [
       {
         id: "architecture",

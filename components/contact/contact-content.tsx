@@ -12,20 +12,20 @@ import { Textarea } from "@/components/ui/textarea"
 const contactLinks = [
   {
     label: "Email",
-    value: "Tiago Becker", // Ajuste para o seu email real
-    href: "mailto:seu-email@exemplo.com",
+    
+    href: "mailto:tiago.becker.contato@gmail.com",
     icon: Mail,
   },
   {
     label: "GitHub",
-    value: "Tiago Becker", // Ajuste para seu link
+   
     href: "https://github.com/TiagoRBecker",
     icon: Github,
   },
   {
     label: "LinkedIn",
-    value: "Tiago Becker", // Ajuste para seu link
-    href: "https://linkedin.com/in/seu-perfil",
+  
+    href: "https://www.linkedin.com/in/tiago-becker-2151473b3/",
     icon: Linkedin,
   },
 ]
@@ -168,10 +168,8 @@ export function ContactContent() {
                   <link.icon className="h-5 w-5" />
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground">{link.label}</div>
-                  <div className="font-medium text-foreground group-hover:text-primary transition-colors">
-                    {link.value}
-                  </div>
+                  <div className="text-base text-white">{link.label}</div>
+                 
                 </div>
               </motion.a>
             ))}
