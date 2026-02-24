@@ -1,44 +1,71 @@
-"use client"
-
-import React from "react"
-import { useState } from "react"
-import { motion } from "framer-motion"
-import { Mail, Github, Linkedin, Send, CheckCircle2 } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
+"use client";
+import emailjs from "@emailjs/browser";
+import React from "react";
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { Mail, Github, Linkedin, Send, CheckCircle2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
 
 const contactLinks = [
   {
     label: "Email",
-    
+
     href: "mailto:tiago.becker.contato@gmail.com",
     icon: Mail,
   },
   {
     label: "GitHub",
-   
+
     href: "https://github.com/TiagoRBecker",
     icon: Github,
   },
   {
     label: "LinkedIn",
-  
+
     href: "https://www.linkedin.com/in/tiago-becker-2151473b3/",
     icon: Linkedin,
   },
-]
+];
 
 export function ContactContent() {
-  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [values, setValues] = useState({
+    name: "",
+    message: "",
+    email: "",
+    title: "",
+  });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitted(true)
-    // Aqui você conectaria com seu serviço de email (Nodemailer, SendGrid, etc)
-    setTimeout(() => setIsSubmitted(false), 5000)
-  }
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  ) => {
+    setValues((prev) => ({
+      ...prev,
+      [e.target.name]: e.target.value,
+    }));
+  };
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+    try {
+      await emailjs.send(
+        "service_xqdtu3d",
+        "template_is1l21m",
+        {
+          title: values.title,
+          name: values.name,
+          message:values.message,
+          email: values.email,
+        },
+        "7nqNdzXf_aoLGdMt8",
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
@@ -52,8 +79,9 @@ export function ContactContent() {
           Entre em Contato
         </h1>
         <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-          Interessado em trabalhar junto ou tem alguma dúvida? Sinta-se à vontade 
-          para entrar em contato através de qualquer um dos canais abaixo.
+          Interessado em trabalhar junto ou tem alguma dúvida? Sinta-se à
+          vontade para entrar em contato através de qualquer um dos canais
+          abaixo.
         </p>
       </motion.div>
 
@@ -65,28 +93,41 @@ export function ContactContent() {
           transition={{ duration: 0.5, delay: 0.1 }}
         >
           <div className="rounded-2xl border border-border/50 bg-card p-6 sm:p-8">
-            <h2 className="text-xl font-semibold text-foreground">Envie uma Mensagem</h2>
+            <h2 className="text-xl font-semibold text-foreground">
+              Envie uma Mensagem
+            </h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Preencha o formulário abaixo e eu responderei o mais breve possível.
+              Preencha o formulário abaixo e eu responderei o mais breve
+              possível.
             </p>
 
             {!isSubmitted ? (
               <form onSubmit={handleSubmit} className="mt-6 space-y-6">
                 <div className="grid gap-6 sm:grid-cols-2">
                   <div className="space-y-2">
-                    <Label htmlFor="name" className="text-foreground">Nome</Label>
+                    <Label htmlFor="name" className="text-foreground">
+                      Nome
+                    </Label>
                     <Input
                       id="name"
+                      name="name"
+                      value={values.name}
+                      onChange={handleChange}
                       type="text"
                       placeholder="Seu nome completo"
                       required
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-foreground">Email</Label>
+                    <Label htmlFor="email" className="text-foreground">
+                      Email
+                    </Label>
                     <Input
                       id="email"
                       type="email"
+                      name="email"
+                      value={values.email}
+                      onChange={handleChange}
                       placeholder="exemplo@email.com"
                       required
                     />
@@ -94,19 +135,29 @@ export function ContactContent() {
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="subject" className="text-foreground">Assunto</Label>
+                  <Label htmlFor="subject" className="text-foreground">
+                    Assunto
+                  </Label>
                   <Input
                     id="subject"
                     type="text"
+                    name="title"
+                    value={values.title}
+                    onChange={handleChange}
                     placeholder="Sobre o que vamos conversar?"
                     required
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message" className="text-foreground">Mensagem</Label>
+                  <Label htmlFor="message" className="text-foreground">
+                    Mensagem
+                  </Label>
                   <Textarea
                     id="message"
+                    name="message"
+                    value={values.message}
+                    onChange={handleChange}
                     placeholder="Descreva seu projeto ou dúvida em detalhes..."
                     rows={5}
                     required
@@ -146,9 +197,12 @@ export function ContactContent() {
           className="space-y-6"
         >
           <div>
-            <h2 className="text-xl font-semibold text-foreground">Outras Formas de Conectar</h2>
+            <h2 className="text-xl font-semibold text-foreground">
+              Outras Formas de Conectar
+            </h2>
             <p className="mt-2 text-sm text-muted-foreground">
-              Prefere uma comunicação direta? Escolha o canal de sua preferência.
+              Prefere uma comunicação direta? Escolha o canal de sua
+              preferência.
             </p>
           </div>
 
@@ -169,7 +223,6 @@ export function ContactContent() {
                 </div>
                 <div>
                   <div className="text-base text-white">{link.label}</div>
-                 
                 </div>
               </motion.a>
             ))}
@@ -182,15 +235,17 @@ export function ContactContent() {
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
                 <span className="relative inline-flex h-3 w-3 rounded-full bg-primary" />
               </span>
-              <span className="font-medium text-foreground">Disponível para Oportunidades</span>
+              <span className="font-medium text-foreground">
+                Disponível para Oportunidades
+              </span>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">
-              Atualmente estou aberto a novos projetos e parcerias. O tempo médio 
-              de resposta é de 24 a 48 horas.
+              Atualmente estou aberto a novos projetos e parcerias. O tempo
+              médio de resposta é de 24 a 48 horas.
             </p>
           </div>
         </motion.div>
       </div>
     </div>
-  )
+  );
 }
