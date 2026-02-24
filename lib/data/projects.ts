@@ -6,7 +6,7 @@ export const projects: Project[] = [
     slug: "fintech-dashboard",
     name: "Ecossistema de Gestão Editorial e Financeira (ERP)",
     shortDescription:
-      "Painel de trading em tempo real com gestão de portfólio e ferramentas de análise de mercado.",
+      "ERP editorial com backend Node.js, arquitetura modular e gestão financeira e de portfólio em tempo real.",
     tags: [
       "Next.js",
       "Express",
@@ -144,7 +144,7 @@ export const projects: Project[] = [
     slug: "logistics-platform",
     name: "Sistema de Gestão e Vendas de documentos online",
     shortDescription:
-      "Solução Full Stack para comercialização automatizada de arquivos digitais, com integração de pagamentos e entrega imediata via Webhooks.",
+      "Plataforma Full Stack para comercialização automatizada de fichas e documentos profissionais, com pagamentos integrados e liberação instantânea via Webhooks.",
     tags: ["Next.js", "NestJS", "Docker"],
     status: "production",
     isPublic: true,
